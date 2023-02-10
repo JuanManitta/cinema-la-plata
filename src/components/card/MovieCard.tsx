@@ -2,8 +2,13 @@ import { Grid, Typography } from '@mui/material';
 import { Star } from '@mui/icons-material';
 import ticket from '../../assets/ticket.svg'
 import { useNavigate } from 'react-router-dom';
+import { Movie } from '../../types/types';
 
 
+interface Props {
+  movie: Movie;
+  getGenre: (genresId: number) => string;
+}
 
 
 const getPoster = (posterpath: string) =>{
@@ -12,7 +17,8 @@ const getPoster = (posterpath: string) =>{
 
 
 
-export const MovieCard = ({movie, getGenre}) =>{
+export const MovieCard = ({movie, getGenre}: Props) =>{
+
 
   const navigate = useNavigate();
 

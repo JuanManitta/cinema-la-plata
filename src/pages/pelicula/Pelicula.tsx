@@ -5,6 +5,7 @@ import { Grid, Link, Typography } from "@mui/material";
 import { Bookmark, Favorite, PlayArrow, Star } from "@mui/icons-material";
 import ticket from '../../assets/ticket.svg'
 import { Footer } from "../../components/footer/Footer";
+import { singleMovie } from "../../types/types";
 
 
 
@@ -17,14 +18,16 @@ const getPosterFullWidth = (posterpath: string) =>{
 
 export const Pelicula = () => {
 
-    const [movie, setMovie] = useState( 20);
+    const [movie, setMovie] = useState<singleMovie>();
+
     const [trailer, setTrailer] = useState('');
+
     const { state } = useLocation()
     const movieId = state.id
 
     useEffect(() => {
       const fetchData = async() =>{
-        const {data: movie} = await moviesApiInTheaters.get(`/${movieId}?api_key=9ee38d833557c19b1f1c02d7e2b7b0f8&language=es-ES`);
+        const {data: movie} = await moviesApiInTheaters.get<singleMovie>(`/${movieId}?api_key=9ee38d833557c19b1f1c02d7e2b7b0f8&language=es-ES`);
         setMovie(movie)
 
         const {data: video} = await moviesApiInTheaters.get(`/${movieId}/videos?api_key=9ee38d833557c19b1f1c02d7e2b7b0f8&language=en-US`)
@@ -36,7 +39,7 @@ export const Pelicula = () => {
     
 
 
-  return  (
+  return movie !== undefined ? (
     <>
     <main style={{paddingTop: '3rem'}}>
         <section>
@@ -127,5 +130,5 @@ export const Pelicula = () => {
     </main>
     <Footer/>
   </>
-  ) 
+  ) : <div>Cargando</div> 
 }
