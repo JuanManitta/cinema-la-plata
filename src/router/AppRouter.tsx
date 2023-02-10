@@ -6,6 +6,7 @@ import { Precios } from "../pages/precios/Precios";
 import { Boleteria } from "../pages/boleterias/Boleteria";
 import { Cartelera } from "../pages/cartelera/Cartelera";
 import { FuturosEstrenos } from "../pages/futuros-estrenos/FuturosEstrenos";
+import { Footer } from "../components/footer/Footer";
 
 export const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ export const AppRouter = () => {
         <Route path='/cartelera' element={<Cartelera/>}/> 
         <Route path='/estrenos' element={<FuturosEstrenos/>}/> 
     </Routes>
+    <Footer/>
     </>
   )
 }

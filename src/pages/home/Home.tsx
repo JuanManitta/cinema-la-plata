@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import moviesApiInTheaters, { moviesGenre } from "../../api/moviesApi";
-import { Footer } from "../../components/footer/Footer";
 import { MovieCard } from "../../components/card/MovieCard";
 
 import { Grid, Typography } from "@mui/material"
@@ -94,6 +93,7 @@ export const Home = () => {
         key={movie.id}
         movie={movie}/>
         ))}
+        
       </Slider>
       </Grid>
       </section>
@@ -149,7 +149,6 @@ export const Home = () => {
     </Grid>
     </section> 
   }
-    <Footer/>
     </>
   ) 
 }

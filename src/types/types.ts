@@ -9,6 +9,7 @@ export interface Movie {
     genre_ids: number[];
     vote_average: number;
     poster_path: string
+    overview: string
 }
 
 export interface singleMovie {
@@ -18,6 +19,7 @@ export interface singleMovie {
     overview: string;
     runtime: number
     poster_path: string;
+    genres: Genre[]
 }
 
 export interface GenreListResponse {
